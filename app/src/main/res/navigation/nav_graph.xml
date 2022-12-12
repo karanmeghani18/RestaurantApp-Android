@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/signUp"
+        android:name="com.example.projectg12.fragments.SignUpFragment">
+        <action
+            android:id="@+id/action_signUp_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.projectg12.fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_signInFragment2"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_homescreenFragment"
+            app:destination="@id/homescreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.projectg12.fragments.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_signUp"
+            app:destination="@id/signUp" />
+        <action
+            android:id="@+id/action_signInFragment_to_homescreenFragment"
+            app:destination="@id/homescreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homescreenFragment"
+        android:name="com.example.projectg12.fragments.HomescreenFragment"
+        android:label="fragment_homescreen"
+        tools:layout="@layout/fragment_homescreen" >
+        <action
+            android:id="@+id/action_homescreenFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.projectg12.fragments.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/orderHistoryFragment"
+        android:name="com.example.projectg12.fragments.OrderHistoryFragment"
+        android:label="fragment_order_history"
+        tools:layout="@layout/fragment_order_history" />
+    <fragment
+        android:id="@+id/receiptScreenFragment"
+        android:name="com.example.projectg12.fragments.ReceiptScreenFragment"
+        android:label="fragment_receipt_screen"
+        tools:layout="@layout/fragment_receipt_screen" />
+
+</navigation>

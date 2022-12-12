@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.SignUpFragment">
+
+    <TextView
+        android:id="@+id/signUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SIGN UP"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/nameET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Enter your name"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toEndOf="@id/signUp"
+        app:layout_constraintTop_toBottomOf="@id/signUp" />
+
+    <TextView
+        android:id="@+id/emailTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email address:"
+        app:layout_constraintEnd_toStartOf="@id/emailET"
+        app:layout_constraintStart_toStartOf="@id/signUp"
+        app:layout_constraintTop_toBottomOf="@id/signUp"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/emailET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="Please enter your email"
+        android:minHeight="48dp"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/emailTV"
+        app:layout_constraintTop_toBottomOf="@+id/emailTV" />
+
+    <TextView
+        android:id="@+id/passwordTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Password:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/emailET"
+        app:layout_constraintTop_toBottomOf="@id/emailET" />
+
+    <EditText
+        android:id="@+id/passwordET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:hint="Please enter your password"
+        android:minHeight="48dp"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/passwordTV"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTV" />
+
+    <EditText
+        android:id="@+id/password2ET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:hint="Confirm Your password"
+        android:minHeight="48dp"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/passwordET"
+        app:layout_constraintTop_toBottomOf="@+id/passwordET" />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Sign Up"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/password2ET"
+        app:layout_constraintTop_toBottomOf="@id/password2ET" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
