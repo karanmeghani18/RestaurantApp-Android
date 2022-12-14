@@ -38,6 +38,7 @@ class SignInFragment : Fragment() {
     ): View? {
         bindingg = FragmentSignInBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -57,7 +58,7 @@ class SignInFragment : Fragment() {
             }
         }
         binding.btnSignUp.setOnClickListener{
-            Navigation.createNavigateOnClickListener(R.id.action_signInFragment_to_signUp)
+            findNavController().navigate(R.id.action_signInFragment_to_signUp,null)
         }
     }
 

@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
+    id 'androidx.navigation.safeargs.kotlin'// safeargs
 }
 
 android {
@@ -68,5 +69,26 @@ dependencies {
 
     // Firebase Storage
     implementation 'com.google.firebase:firebase-storage-ktx'
+
+    //noinspection GradleDependency
+    implementation("androidx.fragment:fragment-ktx:$fragment_version")
+
+
+// for Task.asDeferred
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4'
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    // moshi
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
+    // moshi annotation processor for kotlin
+    implementation 'com.squareup.moshi:moshi-kotlin:1.9.3'
+    // optional library to debug Retrofit’s http requests/responses
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
+
+    //for accessing the location services using Google Play Services
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+
+    //to use Google Maps
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
 
 }

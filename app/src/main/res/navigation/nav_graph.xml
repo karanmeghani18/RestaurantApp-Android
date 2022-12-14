@@ -3,13 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/menuFragment">
     <fragment
         android:id="@+id/signUp"
         android:name="com.example.projectg12.fragments.SignUpFragment">
         <action
             android:id="@+id/action_signUp_to_signInFragment"
             app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_signUp_to_homeScreen"
+            app:destination="@+id/homescreenFragment"/>
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -17,11 +20,11 @@
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
-            android:id="@+id/action_splashFragment_to_signInFragment2"
-            app:destination="@id/signInFragment" />
-        <action
             android:id="@+id/action_splashFragment_to_homescreenFragment"
             app:destination="@id/homescreenFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
@@ -59,5 +62,10 @@
         android:name="com.example.projectg12.fragments.ReceiptScreenFragment"
         android:label="fragment_receipt_screen"
         tools:layout="@layout/fragment_receipt_screen" />
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.projectg12.fragments.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
 
 </navigation>

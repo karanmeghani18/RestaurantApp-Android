@@ -10,23 +10,31 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.projectg12.R
+import com.example.projectg12.databinding.FragmentSplashBinding
 
 class SplashFragment : Fragment() {
+
+    val TAG: String = "Splash-Fragment"
+    private var _binding: FragmentSplashBinding? = null
+    private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_splash, container, false)
+        _binding = FragmentSplashBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // TODO: Add navigation logic
         Handler(Looper.myLooper()!!).postDelayed({
+            val action = SplashFragmentDirections.actionSplashFragmentToSignInFragment()
+            findNavController().navigate(action)
 
-           findNavController().navigate(R.id.action_splashFragment_to_signInFragment2)
-
-        }, 5000)
-
-        return view
+        }, 2000)
     }
 
 }

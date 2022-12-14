@@ -41,6 +41,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="menuFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-176" />
+                            <option name="y" value="658" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="orderHistoryFragment">
                     <value>
                       <LayoutPositions>
@@ -102,6 +114,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_signUp_to_homeScreen">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_signUp_to_signInFragment">
                               <value>
                                 <LayoutPositions />
@@ -128,7 +145,7 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_splashFragment_to_signInFragment2">
+                            <entry key="action_splashFragment_to_signInFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
