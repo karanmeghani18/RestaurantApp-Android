@@ -20,4 +20,5 @@ open class DataSource {
     var menuItemList: ArrayList<MenuItem> = arrayListOf()
     var userCartList: ArrayList<MenuItem> = arrayListOf()
     var currentUser: User? = null
+    var userOrderHistory: List<Order> = arrayListOf()
 }

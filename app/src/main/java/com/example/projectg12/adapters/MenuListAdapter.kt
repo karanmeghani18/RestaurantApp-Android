@@ -14,7 +14,8 @@ class MenuListAdapter(
     private val context: Context,
     private var menuItemsList: List<MenuItem>,
     private val clickListener: IOnMenuItemClickListener
-) : RecyclerView.Adapter<MenuListAdapter.MenuViewHolder>() {
+) : RecyclerView.Adapter<MenuListAdapter.MenuViewHolder>()
+{
     internal val TAG = "Menu Adapter"
 
 

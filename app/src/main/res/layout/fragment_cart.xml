@@ -24,13 +24,39 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_cart"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="@+id/myCart"
-        app:layout_constraintTop_toBottomOf="@+id/myCart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myCart"
+        app:layout_constraintBottom_toTopOf="@id/tvSubtotal"
         tools:listitem="@layout/cart_item" />
+    <TextView
+        android:id="@+id/tvSubtotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/rv_cart"
+app:layout_constraintEnd_toEndOf="parent"
+        android:text="Subtotal"/>
+    <TextView
+        android:id="@+id/tvTax"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubtotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Tax13%"/>
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvTax"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Total"/>
+
+
+
 
     <Button
+        android:id="@+id/btnCheckout"
         android:layout_width="298dp"
         android:layout_height="52dp"
         android:layout_marginStart="161dp"

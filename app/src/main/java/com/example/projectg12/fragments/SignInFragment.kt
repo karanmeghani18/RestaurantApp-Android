@@ -1,25 +1,19 @@
 package com.example.projectg12.fragments
 
-import android.icu.lang.UCharacter.GraphemeClusterBreak.L
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.text.set
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.navOptions
 import com.example.projectg12.R
 import com.example.projectg12.databinding.FragmentSignInBinding
 import com.example.projectg12.models.DataSource
-import com.example.projectg12.models.User
 import com.example.projectg12.repository.AuthRepo
 import com.example.projectg12.repository.UsersRepo
-import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 

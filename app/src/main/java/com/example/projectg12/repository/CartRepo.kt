@@ -6,15 +6,18 @@ import com.example.projectg12.interfaces.IOnMenuItemClickListener
 import com.example.projectg12.interfaces.IonCartItemClickListener
 import com.example.projectg12.models.DataSource
 import com.example.projectg12.models.MenuItem
+import com.example.projectg12.models.Order
 import com.example.projectg12.models.User
 import com.google.android.gms.tasks.Task
 import com.google.firebase.FirebaseException
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.tasks.asDeferred
 
 class CartRepo(
@@ -30,9 +33,10 @@ class CartRepo(
         var isSuccess: Boolean = false
 
         if (currentUser != null) {
+            val cartItemsId: List<String?> = dataSource.userCartList.map {it.id}
             val task: Task<Void> =
                 db.collection(COLLECTION_NAME).document(currentUser!!.id)
-                    .update("cartItemIds", FieldValue.arrayUnion(menuItem.id))
+                    .update("cartItemIds", cartItemsId)
                     .addOnSuccessListener { doc ->
                         Log.d(TAG, "addToCart: Successfully added item to cart on firestore ")
                         isSuccess = true
@@ -90,6 +94,7 @@ class CartRepo(
                                 }
                             }
                         }
+
                         Log.d(TAG, "cart: ")
                         dataSource.userCartList = ArrayList(cartItemsList)
                         clickListener.onCartItemsChangedListener()
@@ -100,4 +105,48 @@ class CartRepo(
         } catch (e: FirebaseException) {
         }
     }
+    fun getCartTotal():Double{
+        var subtotal: Double= 0.0
+        var userCart = dataSource.userCartList
+        for( i in userCart){
+             subtotal += i.price!!
+        }
+        return subtotal
+    }
+    suspend fun checkOut(total: Double){
+        val currentUser: User? = dataSource.currentUser
+        val order: Order = Order(Timestamp.now(),dataSource.userCartList.map { it.id!! },total)
+        val task: Task<Void> =
+            db.collection(COLLECTION_NAME).document(currentUser!!.id)
+                .update("orderHistory", FieldValue.arrayUnion(order))
+                .addOnSuccessListener { doc ->
+                    Log.d(TAG, "checkOut: CheckOut Success")
+                    dataSource.userOrderHistory += order
+
+                }.addOnFailureListener { ex ->
+                    Log.d(TAG, "checkOut: cancil")
+
+                }
+        task.asDeferred().await()
+
+    }
+    suspend fun resetCart(){
+        val currentUser: User? = dataSource.currentUser
+        val emptyCart = listOf<MenuItem>()
+        val task: Task<Void> =
+            db.collection(COLLECTION_NAME).document(currentUser!!.id)
+                .update("cartItemIds", emptyCart)
+                .addOnSuccessListener { doc ->
+                    Log.d(TAG, "checkOut: CheckOut Success")
+                    dataSource.userCartList.clear()
+                    clickListener.onCartItemsChangedListener()
+                }.addOnFailureListener { ex ->
+                    Log.d(TAG, "checkOut: cancil")
+
+                }
+        task.asDeferred().await()
+
+    }
+
+
 }
