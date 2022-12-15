@@ -18,15 +18,14 @@ class MenuListAdapter(
     internal val TAG = "Menu Adapter"
 
 
-    class MenuViewHolder(val binding: MenuItemBinding) :
+    class MenuViewHolder(private val binding: MenuItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
 
         @SuppressLint("SetTextI18n")
         fun bind(currentItem: MenuItem, clickListener: IOnMenuItemClickListener) {
             // associate individual view with data
-            binding.itemName.text = currentItem.itemName
-            binding.itemDesc.text = currentItem.description
+            binding.itemName.text = currentItem.name
             binding.itemPrice.text = currentItem.price.toString()
 
             binding.btnAdd.setOnClickListener {
