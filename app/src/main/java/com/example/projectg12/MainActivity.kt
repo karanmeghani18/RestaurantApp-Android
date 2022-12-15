@@ -3,7 +3,6 @@ package com.example.projectg12
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.projectg12.models.MenuItem
-import com.google.gson.Gson
 import java.io.*
 import java.lang.Exception
 
@@ -26,8 +25,8 @@ class MainActivity : AppCompatActivity() {
 
         }catch (e: Exception){}
         val jsonStr: String = writer.toString()
-        val gson = Gson()
-        val restaurantModel = gson.fromJson<Array<MenuItem>>(jsonStr, Array<MenuItem>::class.java).toList()
+//        val gson = Gson()
+//        val restaurantModel = gson.fromJson<Array<MenuItem>>(jsonStr, Array<MenuItem>::class.java).toList()
 
         return MenuItem
     }

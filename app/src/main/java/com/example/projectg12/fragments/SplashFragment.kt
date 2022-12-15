@@ -31,7 +31,7 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // TODO: Add navigation logic
         Handler(Looper.myLooper()!!).postDelayed({
-            val action = SplashFragmentDirections.actionSplashFragmentToSignInFragment()
+            val action = SplashFragmentDirections.actionSplashFragmentToHomescreenFragment()
             findNavController().navigate(action)
 
         }, 2000)

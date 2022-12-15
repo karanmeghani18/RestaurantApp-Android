@@ -50,77 +50,56 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="24dp"
+        android:text="Todays Offer"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/imageView1"
         android:layout_width="406dp"
         android:layout_height="164dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="84dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/image_banner"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
-
         <ImageView
-            android:id="@+id/imageBanner"
+            android:id="@+id/img_food"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/imagebanner" />
+            android:src="@drawable/imagebanner"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="69dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Categories"
-        android:textColor="#000000"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/category_recyclerView"
-        android:layout_width="409dp"
-        android:layout_height="138dp"
-        android:layout_marginTop="10dp"
+    <ImageView
+        android:id="@+id/img_burger"
+        android:layout_width="404dp"
+        android:layout_height="201dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/burger"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category" />
-
-    <TextView
-        android:id="@+id/tv_recommended"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:text="Recommended"
-        android:textColor="#000000"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category_recyclerView" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recommended_recyclerView"
-        android:layout_width="407dp"
-        android:layout_height="137dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_recommended" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView1" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/recommended_recyclerView"
         app:menu="@menu/bottom_menu_options" />
 
 

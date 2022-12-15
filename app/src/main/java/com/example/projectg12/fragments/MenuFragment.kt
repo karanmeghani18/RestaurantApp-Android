@@ -37,7 +37,7 @@ class MenuFragment : Fragment(),IOnMenuItemClickListener {
         super.onViewCreated(view, savedInstanceState)
         var menuArrayList = arrayListOf<MenuItem>()
 //        menuRepo = MenuRepo()
-        menuListAdapter = MenuListAdapter(view.context, menuItemsList =menuArrayList ,this )
+        menuListAdapter = MenuListAdapter(view.context, menuArrayList ,this )
         binding.rvMenu.adapter= menuListAdapter
         binding.rvMenu.layoutManager = LinearLayoutManager(view.context)
 

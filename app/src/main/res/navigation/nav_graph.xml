@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/menuFragment">
+    app:startDestination="@id/splashFragment">
     <fragment
         android:id="@+id/signUp"
         android:name="com.example.projectg12.fragments.SignUpFragment">
@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_homescreenFragment_to_cartFragment"
             app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_homescreenFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/cartFragment"
@@ -67,5 +70,10 @@
         android:name="com.example.projectg12.fragments.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.projectg12.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
 
 </navigation>
