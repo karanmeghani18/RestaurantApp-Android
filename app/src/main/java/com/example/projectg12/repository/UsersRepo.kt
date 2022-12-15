@@ -13,17 +13,18 @@ class UsersRepo {
     private val COLLECTION_NAME = "users"
     private val FIELD_NAME = "name"
     suspend fun addUserToDB(newUser: com.example.projectg12.models.User){
+
         val data: MutableMap<String, Any> = HashMap() // needed to store to FireStore collection
+
         data[FIELD_NAME] = newUser.name
-        val task: Task<Void> =
-            db.collection(COLLECTION_NAME).document(newUser.id).set(data)
+        val task: Task<Void> = db.collection(COLLECTION_NAME).document(newUser.id).set(data)
                 .addOnSuccessListener { doc ->
                     Log.d(TAG, "addUserToDB - added document: $doc")
                 }.addOnFailureListener { ex ->
                     Log.d(TAG, "addUserToDB: $ex")
                 }
-        val deferredDataSnapshot: Deferred<Void> =
-            task.asDeferred()
+
+        val deferredDataSnapshot: Deferred<Void> = task.asDeferred()
         val result: Void = deferredDataSnapshot.await()
     }
 
