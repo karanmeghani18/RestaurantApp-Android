@@ -8,12 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.set
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.example.projectg12.R
 import com.example.projectg12.databinding.FragmentSignInBinding
+import com.example.projectg12.models.DataSource
+import com.example.projectg12.models.User
 import com.example.projectg12.repository.AuthRepo
 import com.example.projectg12.repository.UsersRepo
 import com.google.firebase.FirebaseApp
@@ -24,19 +27,21 @@ import kotlinx.coroutines.launch
 class SignInFragment : Fragment() {
 
     val TAG: String = "PROJECT G12"
-    private var bindingg: FragmentSignInBinding? = null
-    private val binding get() = bindingg!!
+    private var _binding: FragmentSignInBinding? = null
+    private val binding get() = _binding!!
     private lateinit var authRepo: AuthRepo
     private lateinit var usersRepo: UsersRepo
     private var email = ""
     private var password = ""
     private lateinit var mAuth: FirebaseAuth
+    private var dataSource: DataSource = DataSource.getInstance()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        bindingg = FragmentSignInBinding.inflate(inflater, container, false)
+        _binding = FragmentSignInBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -46,19 +51,31 @@ class SignInFragment : Fragment() {
         authRepo = AuthRepo()
         usersRepo = UsersRepo()
 
+        binding.emailET.setText("karanmeghani18@gmail.com")
+        binding.passwordET.setText("12345678")
+
         binding.btnSignIn.setOnClickListener {
             if (validateData()) {
                 viewLifecycleOwner.lifecycleScope.launch {
                     val authResult = authRepo.signIn(requireContext(), email, password)
+
                     Log.d(TAG, " SIGN IN WITH $email successful")
-                    if (authResult) {
+                    if (authResult != null) {
                         saveToPrefs(email, password)
+                        dataSource.currentUser = usersRepo.getUserFromUID(authResult)
+                        if (dataSource.currentUser != null) {
+                            println("Is not null")
+                            val action =
+                                SignInFragmentDirections.actionSignInFragmentToHomescreenFragment()
+                            findNavController().navigate(action)
+                        }
+                        Log.d(TAG, "onViewCreated: ${dataSource.currentUser}")
                     }
                 }
             }
         }
-        binding.btnSignUp.setOnClickListener{
-            findNavController().navigate(R.id.action_signInFragment_to_signUp,null)
+        binding.btnSignUp.setOnClickListener {
+            findNavController().navigate(R.id.action_signInFragment_to_signUp, null)
         }
     }
 

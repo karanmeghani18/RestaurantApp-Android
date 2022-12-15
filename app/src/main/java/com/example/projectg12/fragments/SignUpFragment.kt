@@ -1,23 +1,26 @@
 package com.example.projectg12.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.example.projectg12.R
-import com.example.projectg12.databinding.FragmentSignInBinding
 import com.example.projectg12.databinding.FragmentSignUpBinding
+import com.example.projectg12.models.DataSource
+import com.example.projectg12.models.Order
 import com.example.projectg12.models.User
 import com.example.projectg12.repository.AuthRepo
 import com.example.projectg12.repository.UsersRepo
-import com.example.projectg12.repository.DataSource
+import com.google.firebase.Timestamp
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.util.Date
 
 class SignUpFragment : Fragment() {
     val TAG: String = "Project G12"
@@ -45,6 +48,7 @@ class SignUpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         authRepo = AuthRepo()
+        usersRepo = UsersRepo()
 
         binding.btnSignUp.setOnClickListener {
             val email = binding.emailET.text.toString()
@@ -52,7 +56,7 @@ class SignUpFragment : Fragment() {
             val name = binding.nameET.text.toString()
             signUpUser(email, password, name)
             val action = SignUpFragmentDirections.actionSignUpToHomeScreen()
-            findNavController().navigate(action,null)
+            findNavController().navigate(action, null)
         }
     }
 
@@ -61,11 +65,27 @@ class SignUpFragment : Fragment() {
             lifecycleScope.launch {
                 val userUIDFromAuth = authRepo.createAccount(requireContext(), email, password)
 
-                authRepo.createAccount(requireContext(), email, password)
                 if (userUIDFromAuth != null) {
-                    usersRepo.addUserToDB(User(userUIDFromAuth, name))
+                    val newUser: User = User(
+                        id = userUIDFromAuth,
+                        cartItemIds = listOf(),
+                        email = email,
+                        name = name,
+                        orderHistory = listOf<Order>(
+                            Order(
+                                Timestamp.now(),
+                                listOf<String>("123", "321"),
+                                123.23
+                            )
+                        ),
+                    )
+                    usersRepo.addUserToDB(newUser)
                     saveToPrefs(email, password, name)
+                    datasource.currentUser = newUser
 
+                } else {
+                    Toast.makeText(requireContext(), "Unable to create user", Toast.LENGTH_SHORT)
+                        .show()
                 }
 
             }
