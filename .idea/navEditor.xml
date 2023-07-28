@@ -13,8 +13,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="103" />
-                            <option name="y" value="1008" />
+                            <option name="x" value="548" />
+                            <option name="y" value="783" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -25,8 +25,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-291" />
-                            <option name="y" value="775" />
+                            <option name="x" value="313" />
+                            <option name="y" value="787" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -36,24 +36,7 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_homescreenFragment_to_menuFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
                           </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="mainActivity">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-569" />
-                            <option name="y" value="-54" />
-                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -63,8 +46,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="97" />
-                            <option name="y" value="678" />
+                            <option name="x" value="-176" />
+                            <option name="y" value="658" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -99,8 +82,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-348" />
-                            <option name="y" value="385" />
+                            <option name="x" value="256" />
+                            <option name="y" value="389" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -125,8 +108,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="42" />
-                            <option name="y" value="382" />
+                            <option name="x" value="500" />
+                            <option name="y" value="368" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -151,8 +134,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-613" />
-                            <option name="y" value="383" />
+                            <option name="x" value="-227" />
+                            <option name="y" value="435" />
                           </Point>
                         </option>
                         <option name="myPositions">

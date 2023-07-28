@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="70dp">
+    android:layout_height="100dp">
 
     <TextView
         android:id="@+id/itemName"
@@ -26,17 +25,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Item Price: 100"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/itemDesc" />
+        app:layout_constraintTop_toBottomOf="@id/itemDesc"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="70dp"
+        android:id="@+id/btnRemove"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:text="add"
+        android:text="Remove"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/itemDesc"/>
+        app:layout_constraintTop_toBottomOf="@id/itemPrice"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,4 +5,6 @@ import com.example.projectg12.models.MenuItem
 interface IOnMenuItemClickListener {
 
     fun onMenuItemClickListener(menuItem: MenuItem)
+
+    fun onMenuItemsChangeListener()
 }
